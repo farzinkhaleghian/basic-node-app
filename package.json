@@ -16,5 +16,8 @@
     "express"
   ],
   "author": "Farzin Khaleghian",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6"
+  }
 }
