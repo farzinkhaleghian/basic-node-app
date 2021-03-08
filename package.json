@@ -18,6 +18,9 @@
   "author": "Farzin Khaleghian",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.6"
+    "config": "^3.3.6",
+    "express-async-errors": "^3.1.1",
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.7"
   }
 }
