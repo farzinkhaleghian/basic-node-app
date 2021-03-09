@@ -19,9 +19,11 @@
   "author": "Farzin Khaleghian",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "config": "^3.3.6",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "helmet": "^4.4.1",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.7"
   },
