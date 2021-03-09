@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const userHandller = require('../controllers/user');
 
-router.get('/users', (req, res, next) => {
-    throw new Error('My error1')
-    res.json({
-        response: "Hello World!"
-    })
-});
+router.get('/users', userHandller.getUser);
 
 module.exports = router;
