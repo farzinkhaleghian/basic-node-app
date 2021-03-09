@@ -1,11 +1,12 @@
 const { createLogger, format, transports } = require('winston');
 // require('winston-mongodb');
-// require('express-async-errors');
+require('express-async-errors');
 
 module.exports = createLogger({
   format: format.combine(
     format.json(),
     format.timestamp(),
+    format.prettyPrint()
   ),
   transports: [
     new transports.Console({
@@ -16,11 +17,16 @@ module.exports = createLogger({
       )
     }),
     new transports.File({
-      filename: 'log/logfile.log',
+      filename: 'log/info.log',
       level: 'info',
       handleRejections: true,
+    }),
+    new transports.File({
+      filename: 'log/error.log',
+      level: 'error',
+      handleRejections: true,
       format: format.combine(
-        format.prettyPrint()
+        format.colorize(),
       )
     }),
     // new transports.MongoDB({
@@ -31,12 +37,11 @@ module.exports = createLogger({
     // })
   ],
   exceptionHandlers: [
-    new transports.File({ filename: 'log/uncaughtExceptions.log' }),
+    new transports.File({ filename: 'log/error.log' }),
     new transports.Console({
-      level: 'info',
+      level: 'error',
       format: format.combine(
         format.colorize(),
-        format.simple(),
       )
     }),
   ],
