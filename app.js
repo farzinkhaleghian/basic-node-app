@@ -8,6 +8,7 @@ const app = express();
 
 require('./startup/routing')(app);
 require('./startup/prod')(app);
+require('./startup/db');
 
 const port = process.env.PORT || config.get('port');
 app.listen(port, () => {
