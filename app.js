@@ -6,7 +6,9 @@ logger.info(process.env.NODE_ENV);
 
 const app = express();
 
+require('./startup/routing')(app);
+
 const port = process.env.PORT || config.get('port');
 app.listen(port, () => {
-    logger.info(`Running on port ${port}`);
+    logger.info(`Running on port ${port}...`);
 })
