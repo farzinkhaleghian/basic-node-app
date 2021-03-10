@@ -8,6 +8,7 @@ logger.info(process.env.NODE_ENV);
 
 const app = express();
 
+require('./startup/config')();
 require('./startup/routing')(app);
 require('./startup/prod')(app);
 require('./startup/db');

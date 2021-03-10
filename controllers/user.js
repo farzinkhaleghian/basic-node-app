@@ -1,5 +1,5 @@
 // const {Department} = require('../models/department')
-const {User, createUser} = require('../models/users');
+const {User, createUser} = require('../models/user');
 const Joi = require('joi');
 
 exports.getUser = (req, res, next) => {
