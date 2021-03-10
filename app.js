@@ -1,6 +1,8 @@
 const config = require('config');
 const logger = require('./startup/logging');
 const express = require('express');
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 logger.info(process.env.NODE_ENV);
 

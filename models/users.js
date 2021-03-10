@@ -21,14 +21,21 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model('Users', userSchema);
-
-async function createUser(name, role, department){
+async function createUser(name, roleName, department){
+    const role = new Role({name: roleName});
     const user = new User({name, role, department});
     const result = await user.save();
-    console.log(result);
+    return result;
 }
 
+const User = mongoose.model('Users', userSchema);
+
+
+// async function createUser(name, role, department){
+//     const user = new User({name, role, department});
+//     const result = await user.save();
+//     console.log(result);
+// }
 async function getUsers(){
     const users = await User
         .find()
@@ -36,6 +43,7 @@ async function getUsers(){
         .select('name role department');
     console.log(users)
 }
-// createUser('Arisa', new Role({name: 'Admin'}), '60484eb1d6629c2f9047153a');
+// createUser('Arisa',new Role({name: roleName}), '60484eb1d6629c2f9047153a');
 // getUsers()
 exports.User = User;
+exports.createUser = createUser;
